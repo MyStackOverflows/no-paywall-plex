@@ -1,10 +1,12 @@
 package com.mystackoverflows.plex
 
+import kotlinx.serialization.json.Json
 import org.json.JSONArray
 import org.json.JSONObject
 
 class Util {
     companion object {
+        val decoder = Json { ignoreUnknownKeys = true }
         fun getStringArray(
             json: JSONObject, key: String, innerTag: String = "tag"
         ): Array<String> {

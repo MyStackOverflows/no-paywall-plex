@@ -2,7 +2,7 @@ package com.mystackoverflows.plex
 
 import org.json.JSONObject
 
-data class MediaItemSerializable(
+data class MediaItemPrimitives(
     val container: String = "",
     val videoProfile: String = "",
     val aspectRatio: Float = -1f,
@@ -20,7 +20,13 @@ data class MediaItemSerializable(
 )
 
 class MediaItem(private val json: JSONObject) {
-    init {
+    val primitives = Util.decoder.decodeFromString<MediaItemPrimitives>(json.toString())
+    var parts: Array<PartItem?> = arrayOf()
 
+    init {
+        val partArray = json.getJSONArray("Part")
+        parts = arrayOfNulls<PartItem>(partArray.length())
+        for (i in 0..<partArray.length())
+            parts[i] = Util.decoder.decodeFromString((partArray[i] as JSONObject).toString())
     }
 }
