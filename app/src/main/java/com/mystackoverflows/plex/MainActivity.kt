@@ -1,19 +1,21 @@
 package com.mystackoverflows.plex
 
+import android.media.MediaPlayer.OnPreparedListener
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import android.widget.VideoView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.mystackoverflows.plex.databinding.ActivityMainBinding
-import kotlinx.serialization.json.Json
-import org.json.JSONObject
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,11 +39,21 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-//        appBarConfiguration = AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
-        appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.nav_home, R.id.nav_gallery), drawerLayout)
+        appBarConfiguration = AppBarConfiguration(
+            setOf(R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow),
+            drawerLayout
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        println("Setting video uri")
+        val vid = findViewById<VideoView>(R.id.videoView)
+        val uri = Uri.parse("")
+        vid.setVideoURI(uri)
+        vid.setOnPreparedListener(OnPreparedListener { mp ->
+            mp.isLooping = true
+            vid.start()
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
