@@ -23,7 +23,7 @@ data class MoviePrimitives(
     val key: String = "",
     val updatedAt: Int = -1,
     val summary: String = "",
-    val art: String = "", 
+    val art: String = "",
     val audienceRating: Float = -1f,
     val originallyAvailableAt: String = "",
     val originalTitle: String = "",

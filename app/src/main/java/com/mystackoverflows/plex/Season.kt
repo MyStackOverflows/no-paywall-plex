@@ -42,7 +42,7 @@ class Season(private val json: JSONObject) {
     val lastViewedAt =
         LocalDateTime.ofEpochSecond(primitives.lastViewedAt.toLong(), 0, ZoneOffset.UTC)
     val updatedAt = LocalDateTime.ofEpochSecond(primitives.updatedAt.toLong(), 0, ZoneOffset.UTC)
-    
+
     init {
         // todo: add episode preloading here
     }

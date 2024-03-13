@@ -9,14 +9,14 @@ import java.time.ZoneOffset
 
 @Serializable
 data class PlexServerPrimitives(
-    val name: String = "", 
+    val name: String = "",
     val product: String = "",
     val productVersion: String = "",
     val platform: String = "",
-    val platformVersion: String = "", 
+    val platformVersion: String = "",
     val device: String = "",
     val clientIdentifier: String = "",
-    val createdAt: Int = -1, 
+    val createdAt: Int = -1,
     val lastSeenAt: Int = -1,
     val provides: String = "",
     val ownerId: String = "",

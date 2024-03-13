@@ -20,6 +20,10 @@ data class ServerConnectionPrimitives(
 
 class ServerConnection(private val json: JSONObject) {
     val primitives = Util.decoder.decodeFromString<ServerConnectionPrimitives>(json.toString())
-    var domain = primitives.uri.substring(8)  // cut off 'https://'
-    domain = domain.substring(0, domain.indexOf(":")) // remove ':<portnum>'
+    var domain = ""
+
+    init {
+        domain = primitives.uri.substring(8)  // cut off 'https://'
+        domain = domain.substring(0, domain.indexOf(":")) // remove ':<portnum>'
+    }
 }
