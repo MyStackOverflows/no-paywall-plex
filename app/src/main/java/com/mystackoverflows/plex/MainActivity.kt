@@ -48,7 +48,8 @@ class MainActivity : AppCompatActivity() {
 
         println("Setting video uri")
         val vid = findViewById<VideoView>(R.id.videoView)
-        val uri = Uri.parse("")
+        val token = "esx1SJsty_gPdAutfpBK"
+        val uri = Uri.parse("https://216-232-35-201.96af635d839c47fe84b7817db040dab1.plex.direct:32400/library/parts/11213/1661360973/file.mkv?X-Plex-Token=$token")
         vid.setVideoURI(uri)
         vid.setOnPreparedListener(OnPreparedListener { mp ->
             mp.isLooping = true
