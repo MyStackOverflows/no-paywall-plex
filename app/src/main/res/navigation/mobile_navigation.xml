@@ -22,4 +22,10 @@
         android:name="com.mystackoverflows.plex.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_testing"
+        android:name="com.mystackoverflows.plex.ui.TestingFragment"
+        android:label="Testing"
+        tools:layout="@layout/fragment_testing" />
 </navigation>

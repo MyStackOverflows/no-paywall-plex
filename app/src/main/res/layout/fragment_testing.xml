@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1c1c1c"
-    tools:context=".TestingFragment">
+    tools:context=".ui.TestingFragment">
 
     <ImageView
         android:id="@+id/episodeThumbnail"

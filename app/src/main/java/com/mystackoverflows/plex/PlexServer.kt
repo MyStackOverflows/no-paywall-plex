@@ -39,7 +39,7 @@ class PlexServer(private val json: JSONObject) {
     val lastSeenAt = LocalDateTime.ofEpochSecond(primitives.lastSeenAt.toLong(), 0, ZoneOffset.UTC)
 
     init {
-        // TODO: double check serverconnections here is actually funcitonal
+        // TODO: double check serverconnections here is actually functional
         val connectionArray = json.getJSONArray("connections")
         connections = arrayOfNulls<ServerConnection>(connectionArray.length())
         for (i in 0..<connectionArray.length())
